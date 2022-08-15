@@ -11,8 +11,10 @@
         My commit is named Pycharm setup
 
 Task 2 Selectors
+
     Subtask 1 Searching for selectors on the login pageList all the elements that are on the login page.
-    <!-- As I can see most locators will work only in certain conditions (such as chosen language or current state) so it's really tricky to find the most universal one that will be both compact and not dependable on it's location/language/etc. Most locators will be written for English version of the page -->
+    
+     <!-- As I can see most locators will work only in certain conditions (such as chosen language or current state) so it's really tricky to find the most universal one that will be both compact and not dependable on it's location/language/etc. Most locators will be written for English version of the page -->
         Login_input_xpath
             #login
             //*[text()='Login']
