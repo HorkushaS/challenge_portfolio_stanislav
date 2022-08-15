@@ -15,14 +15,14 @@ Task 2 Selectors
     <!-- As I can see most locators will work only in certain conditions (such as chosen language or current state) so it's really tricky to find the most universal one that will be both compact and not dependable on it's location/language/etc. Most locators will be written for English version of the page -->
         Login_input_xpath
             #login
-            //*[text()="Login"]
-            //*[@id="login"]
+            //*[text()='Login']
+            //*[@id='login']
             //input[@type='text']
             /html/body/div/form/div/div[1]/div[1]/div/input
         Password_input_xpath
             #password
-            //*[text()="Password"]
-            //*[@id="password"]
+            //*[text()='Password']
+            //*[@id='password']
             //input[@type='password']
             /html/body/div/form/div/div[1]/div[2]/div/input
         Remind_password_hyperlink_xpath
