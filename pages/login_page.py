@@ -9,6 +9,8 @@ class LoginPage(BasePage):
     expected_title = 'Scouts panel - sign in'
     title_of_box_xpath = "//*/div[1]/h5"
     header_of_box = 'Scouts Panel'
+    password_warning_xpath = "//*/div[1]/div[3]/span"
+    password_warning = 'Identifier or password invalid.'
 
     def type_in_email(self, email):
         self.field_send_keys(self.login_field_xpath, email)
@@ -21,3 +23,6 @@ class LoginPage(BasePage):
 
     def title_of_page(self):
         assert self.get_page_title(self.login_url) == self.expected_title
+
+    def check_password_warning(self):
+        assert self.get_password_warning(self.login_url) == self.expected_password_warning

@@ -28,6 +28,9 @@ class TestLoginPage(unittest.TestCase):
         user_login.click_on_the_sign_in_button()
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
+        dashboard_page.click_on_the_log_out_button()
+        user_login.wait_for_element_to_be_visible(user_login.sign_in_button_xpath)
+        user_login.assert_element_text(self.driver, LoginPage.title_of_box_xpath, LoginPage.header_of_box)
 
 
     @classmethod

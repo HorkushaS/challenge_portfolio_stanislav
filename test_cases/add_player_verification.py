@@ -18,7 +18,7 @@ class TestLoginPage(unittest.TestCase):
         self.driver.fullscreen_window()
         self.driver.implicitly_wait(IMPLICITLY_WAIT)
 
-    def test_log_in_to_the_system(self):
+    def test_add_player_verification(self):
         user_login = LoginPage(self.driver)
         user_login.title_of_page()
         user_login.assert_element_text(self.driver, LoginPage.title_of_box_xpath, LoginPage.header_of_box)
@@ -28,6 +28,13 @@ class TestLoginPage(unittest.TestCase):
         user_login.click_on_the_sign_in_button()
         dashboard_page = Dashboard(self.driver)
         dashboard_page.title_of_page()
+        dashboard_page.click_on_the_players_button()
+        dashboard_page.wait_for_element_to_be_clickable(dashboard_page.filter_table_button_xpath)
+        dashboard_page.click_on_the_filter_table_button()
+        dashboard_page.type_in_filter_name(dashboard_page.name)
+        dashboard_page.type_in_filter_surname(dashboard_page.surname)
+        dashboard_page.assert_main_position()
+        time.sleep(3)
 
 
     @classmethod

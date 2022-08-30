@@ -1,5 +1,10 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+from utils.settings import DEFAULT_LOCATOR_TYPE
+import time
 
 
 class BasePage():
@@ -17,6 +22,9 @@ class BasePage():
         self.driver.get(url)
         return self.driver.title
 
+    def get_password_warning(self, url):
+        self.driver.get(url)
+        return self.driver.title
     def assert_element_text(self, driver, xpath, expected_text):
         """Comparing expected text with observed value from web element
 
@@ -28,3 +36,13 @@ class BasePage():
         element = driver.find_element(by=By.XPATH, value=xpath)
         element_text = element.text
         assert expected_text == element_text
+
+    def wait_for_element_to_be_clickable(self, locator, locator_type=DEFAULT_LOCATOR_TYPE):
+        wait = WebDriverWait(self.driver, 2)
+        element = wait.until(EC.element_to_be_clickable((locator_type, locator)))
+        time.sleep(1)
+
+    def wait_for_element_to_be_visible(self, locator, locator_type=DEFAULT_LOCATOR_TYPE):
+        wait = WebDriverWait(self.driver, 2)
+        element = wait.until(EC.presence_of_element_located((locator_type, locator)))
+        time.sleep(1)
